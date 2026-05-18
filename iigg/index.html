@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="../favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>Lucci & Asociados — Cuestionario Ganancias PH 2024 · 2025</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -404,8 +402,17 @@
       </div>
       <div id="reveal_hijo_incap_cant" class="reveal-slot" style="display:none">
         <div class="field">
-          <label>Cantidad de hijos incapacitados</label>
-          <input type="number" name="hijos_incapacitados_cant" min="0" placeholder="0">
+          <label>Cantidad de hijos incapacitados a cargo</label>
+          <div class="montos-grid">
+            <div class="monto-item">
+              <label>2024</label>
+              <input type="number" name="hijos_incapacitados_cant_2024" min="0" placeholder="0">
+            </div>
+            <div class="monto-item">
+              <label>2025</label>
+              <input type="number" name="hijos_incapacitados_cant_2025" min="0" placeholder="0">
+            </div>
+          </div>
           <span class="hint">Aplica doble deducción Art. 30 inc. b) pto. 2.</span>
         </div>
       </div>
@@ -516,24 +523,54 @@
         </div>
         <div class="field">
           <label>&#191;Cómo preferís computar gastos de mantenimiento?</label>
-          <div class="radio-group inline">
-            <label class="radio-option"><input type="radio" name="gastos_alquiler_opcion" value="5% presunto" onchange="toggleReveal('gastos_reales_detalle')"> 5% presunto</label>
-            <label class="radio-option"><input type="radio" name="gastos_alquiler_opcion" value="Gastos reales" onchange="toggleReveal('gastos_reales_detalle')"> Gastos reales</label>
-          </div>
           <span class="hint">Opción anual irrevocable (Art. 89 LIG). Si no sabés, dejalo en blanco y lo definimos juntos.</span>
+          <div class="montos-grid">
+            <div class="monto-item">
+              <label>2024</label>
+              <div class="radio-group inline">
+                <label class="radio-option"><input type="radio" name="gastos_alquiler_opcion_2024" value="5% presunto" onchange="toggleReveal('gastos_reales_detalle_2024')"> 5% presunto</label>
+                <label class="radio-option"><input type="radio" name="gastos_alquiler_opcion_2024" value="Gastos reales" onchange="toggleReveal('gastos_reales_detalle_2024')"> Gastos reales</label>
+              </div>
+            </div>
+            <div class="monto-item">
+              <label>2025</label>
+              <div class="radio-group inline">
+                <label class="radio-option"><input type="radio" name="gastos_alquiler_opcion_2025" value="5% presunto" onchange="toggleReveal('gastos_reales_detalle_2025')"> 5% presunto</label>
+                <label class="radio-option"><input type="radio" name="gastos_alquiler_opcion_2025" value="Gastos reales" onchange="toggleReveal('gastos_reales_detalle_2025')"> Gastos reales</label>
+              </div>
+            </div>
+          </div>
         </div>
-        <div id="reveal_gastos_reales_detalle" class="reveal-slot" style="display:none">
+        <div id="reveal_gastos_reales_detalle_2024" class="reveal-slot" style="display:none">
           <div class="field">
-            <label>Detalle de gastos reales</label>
-            <textarea name="gastos_alquiler_detalle" placeholder="Impuestos pagados, seguro, reparaciones, comisiones inmobiliaria, ABL, expensas extraordinarias..."></textarea>
+            <label>Detalle de gastos reales 2024</label>
+            <textarea name="gastos_alquiler_detalle_2024" placeholder="Impuestos pagados, seguro, reparaciones, comisiones inmobiliaria, ABL, expensas extraordinarias..."></textarea>
+          </div>
+        </div>
+        <div id="reveal_gastos_reales_detalle_2025" class="reveal-slot" style="display:none">
+          <div class="field">
+            <label>Detalle de gastos reales 2025</label>
+            <textarea name="gastos_alquiler_detalle_2025" placeholder="Impuestos pagados, seguro, reparaciones, comisiones inmobiliaria, ABL, expensas extraordinarias..."></textarea>
           </div>
         </div>
         <div class="nota">El alquiler se declara por lo <strong>devengado</strong> (lo que corresponde cobrar), no por lo efectivamente cobrado. Si un inquilino te debe meses, también se declaran.</div>
         <div class="field">
           <label>&#191;La actividad de alquiler incluye servicios adicionales (amoblado, limpieza, desayuno) o es tu actividad económica principal?</label>
-          <div class="radio-group inline">
-            <label class="radio-option"><input type="radio" name="alquiler_semaforo" value="Sí"> Sí</label>
-            <label class="radio-option"><input type="radio" name="alquiler_semaforo" value="No"> No</label>
+          <div class="montos-grid">
+            <div class="monto-item">
+              <label>2024</label>
+              <div class="radio-group inline">
+                <label class="radio-option"><input type="radio" name="alquiler_semaforo_2024" value="Sí"> Sí</label>
+                <label class="radio-option"><input type="radio" name="alquiler_semaforo_2024" value="No"> No</label>
+              </div>
+            </div>
+            <div class="monto-item">
+              <label>2025</label>
+              <div class="radio-group inline">
+                <label class="radio-option"><input type="radio" name="alquiler_semaforo_2025" value="Sí"> Sí</label>
+                <label class="radio-option"><input type="radio" name="alquiler_semaforo_2025" value="No"> No</label>
+              </div>
+            </div>
           </div>
           <span class="hint">Si respondiste Sí, evaluaremos si corresponde declarar como 3ra categoría en vez de 1ra.</span>
         </div>
@@ -807,7 +844,16 @@
 
       <div class="field">
         <label>Otras ventas no contempladas arriba</label>
-        <textarea name="otras_ventas" placeholder="Describir: bien vendido, precio de compra, precio de venta, fecha..."></textarea>
+        <div class="montos-grid">
+          <div class="monto-item">
+            <label>2024</label>
+            <textarea name="otras_ventas_2024" placeholder="Bien vendido, precio de compra, precio de venta, fecha..." style="min-height:80px"></textarea>
+          </div>
+          <div class="monto-item">
+            <label>2025</label>
+            <textarea name="otras_ventas_2025" placeholder="Bien vendido, precio de compra, precio de venta, fecha..." style="min-height:80px"></textarea>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -997,7 +1043,7 @@
       <span class="section-toggle">&#9662;</span>
     </div>
     <div class="section-body hidden">
-      <div class="nota">Estos movimientos no pagan Ganancias pero son necesarios para la <strong>justificación patrimonial</strong>. Si recibiste alguno, es importante declararlo para evitar inconsistencias.</div>
+      <div class="nota">Estos movimientos no pagan Ganancias pero son necesarios para la <strong>justificación patrimonial</strong>. Si recibiste alguno, es importante declararlo para evitar inconsistencias. Indicá el monto por año según corresponda.</div>
 
       <div class="field">
         <label>&#191;Recibiste herencias o legados?</label>
@@ -1011,7 +1057,12 @@
           <div class="slot-card-title">Herencia / legado</div>
           <div class="field-grid">
             <div class="field"><label>Concepto</label><input type="text" name="herencia_concepto" placeholder="Ej: herencia de padre, legado testamentario"></div>
-            <div class="field"><label>Monto estimado</label><input type="text" name="herencia_monto" placeholder="$ 0"></div>
+            <div class="field"><label>Monto estimado</label>
+              <div class="montos-grid">
+                <div class="monto-item"><label>2024</label><input type="text" name="herencia_monto_2024" placeholder="$ 0"></div>
+                <div class="monto-item"><label>2025</label><input type="text" name="herencia_monto_2025" placeholder="$ 0"></div>
+              </div>
+            </div>
             <div class="field"><label>Fecha</label><input type="text" name="herencia_fecha" placeholder="dd/mm/aaaa o mes/año"></div>
             <div class="field"><label>Detalle adicional</label><input type="text" name="herencia_detalle" placeholder="Bienes recibidos, sucesión en trámite, etc."></div>
           </div>
@@ -1030,7 +1081,12 @@
           <div class="slot-card-title">Donación recibida</div>
           <div class="field-grid">
             <div class="field"><label>Concepto / donante</label><input type="text" name="donacion_rec_concepto" placeholder="Ej: donación de padres para compra de vivienda"></div>
-            <div class="field"><label>Monto</label><input type="text" name="donacion_rec_monto" placeholder="$ 0"></div>
+            <div class="field"><label>Monto</label>
+              <div class="montos-grid">
+                <div class="monto-item"><label>2024</label><input type="text" name="donacion_rec_monto_2024" placeholder="$ 0"></div>
+                <div class="monto-item"><label>2025</label><input type="text" name="donacion_rec_monto_2025" placeholder="$ 0"></div>
+              </div>
+            </div>
             <div class="field"><label>Fecha</label><input type="text" name="donacion_rec_fecha" placeholder="dd/mm/aaaa"></div>
             <div class="field"><label>Detalle</label><input type="text" name="donacion_rec_detalle" placeholder="Escritura, transferencia bancaria, etc."></div>
           </div>
@@ -1049,7 +1105,12 @@
           <div class="slot-card-title">Préstamo recibido</div>
           <div class="field-grid">
             <div class="field"><label>Prestamista / entidad</label><input type="text" name="prestamo_rec_concepto" placeholder="Ej: préstamo de familiar, banco, fintech"></div>
-            <div class="field"><label>Monto</label><input type="text" name="prestamo_rec_monto" placeholder="$ 0"></div>
+            <div class="field"><label>Monto</label>
+              <div class="montos-grid">
+                <div class="monto-item"><label>2024</label><input type="text" name="prestamo_rec_monto_2024" placeholder="$ 0"></div>
+                <div class="monto-item"><label>2025</label><input type="text" name="prestamo_rec_monto_2025" placeholder="$ 0"></div>
+              </div>
+            </div>
             <div class="field"><label>Fecha</label><input type="text" name="prestamo_rec_fecha" placeholder="dd/mm/aaaa"></div>
             <div class="field"><label>Detalle</label><input type="text" name="prestamo_rec_detalle" placeholder="Contrato, plazo, destino de fondos..."></div>
           </div>
@@ -1068,7 +1129,12 @@
           <div class="slot-card-title">Venta de bien no alcanzado</div>
           <div class="field-grid">
             <div class="field"><label>Concepto</label><input type="text" name="venta_no_alc_concepto" placeholder="Ej: inmueble comprado en 2010"></div>
-            <div class="field"><label>Monto de venta</label><input type="text" name="venta_no_alc_monto" placeholder="$ 0"></div>
+            <div class="field"><label>Monto de venta</label>
+              <div class="montos-grid">
+                <div class="monto-item"><label>2024</label><input type="text" name="venta_no_alc_monto_2024" placeholder="$ 0"></div>
+                <div class="monto-item"><label>2025</label><input type="text" name="venta_no_alc_monto_2025" placeholder="$ 0"></div>
+              </div>
+            </div>
             <div class="field"><label>Fecha</label><input type="text" name="venta_no_alc_fecha" placeholder="dd/mm/aaaa"></div>
             <div class="field"><label>Detalle</label><input type="text" name="venta_no_alc_detalle"></div>
           </div>
@@ -1226,7 +1292,8 @@ const REVEAL_MAP = {
   tiene_gastos_actividad: 'gastos_act_detalle',
   /* D */
   tiene_alquileres:       'alquileres_detalle',
-  gastos_alquiler_opcion: { slot: 'gastos_reales_detalle', value: 'Gastos reales' },
+  gastos_alquiler_opcion_2024: { slot: 'gastos_reales_detalle_2024', value: 'Gastos reales' },
+  gastos_alquiler_opcion_2025: { slot: 'gastos_reales_detalle_2025', value: 'Gastos reales' },
   /* E */
   tiene_unipersonal:      'unipersonal_detalle',
   tiene_sociedades:       'sociedades_detalle',
@@ -1449,7 +1516,8 @@ function exportarXLSX() {
       ['hijos_menores_2024', 'Hijos < 18 a cargo 2024'],
       ['hijos_menores_2025', 'Hijos < 18 a cargo 2025'],
       ['hijo_incapacitado', 'Hijo incapacitado'],
-      ['hijos_incapacitados_cant', 'Cantidad hijos incapacitados'],
+      ['hijos_incapacitados_cant_2024', 'Hijos incapacitados 2024'],
+      ['hijos_incapacitados_cant_2025', 'Hijos incapacitados 2025'],
     ]},
     { title: 'C. Ingresos por trabajo', fields: [
       ['tiene_dependencia_jub', 'Dependencia / Jubilacion'],
@@ -1464,9 +1532,12 @@ function exportarXLSX() {
     { title: 'D. Ingresos por alquileres', fields: [
       ['tiene_alquileres', 'Tiene alquileres'],
       ['alquileres_detalle', 'Detalle inmuebles alquilados'],
-      ['gastos_alquiler_opcion', 'Opcion gastos mantenimiento'],
-      ['gastos_alquiler_detalle', 'Detalle gastos reales'],
-      ['alquiler_semaforo', 'Incluye servicios / actividad ppal'],
+      ['gastos_alquiler_opcion_2024', 'Gastos mantenimiento 2024'],
+      ['gastos_alquiler_opcion_2025', 'Gastos mantenimiento 2025'],
+      ['gastos_alquiler_detalle_2024', 'Detalle gastos reales 2024'],
+      ['gastos_alquiler_detalle_2025', 'Detalle gastos reales 2025'],
+      ['alquiler_semaforo_2024', 'Servicios / actividad ppal 2024'],
+      ['alquiler_semaforo_2025', 'Servicios / actividad ppal 2025'],
     ]},
     { title: 'E. Participación en empresas — Unipersonal', fields: [
       ['tiene_unipersonal', 'Tiene empresa unipersonal'],
@@ -1526,7 +1597,8 @@ function exportarXLSX() {
       ['mueble3_costo', 'Mueble 3 — Costo'],
       ['mueble3_precio_venta', 'Mueble 3 — Precio venta'],
       ['mueble3_fecha_venta', 'Mueble 3 — Fecha venta'],
-      ['otras_ventas', 'Otras ventas'],
+      ['otras_ventas_2024', 'Otras ventas 2024'],
+      ['otras_ventas_2025', 'Otras ventas 2025'],
     ]},
     { title: 'G. Rentas del exterior', fields: [
       ['tiene_rentas_exterior', 'Tiene rentas del exterior'],
@@ -1554,22 +1626,26 @@ function exportarXLSX() {
     { title: 'J. Movimientos no gravados', fields: [
       ['herencias', 'Recibio herencias/legados'],
       ['herencia_concepto', 'Herencia — Concepto'],
-      ['herencia_monto', 'Herencia — Monto'],
+      ['herencia_monto_2024', 'Herencia — Monto 2024'],
+      ['herencia_monto_2025', 'Herencia — Monto 2025'],
       ['herencia_fecha', 'Herencia — Fecha'],
       ['herencia_detalle', 'Herencia — Detalle'],
       ['donaciones_recibidas', 'Recibio donaciones'],
       ['donacion_rec_concepto', 'Donacion — Concepto'],
-      ['donacion_rec_monto', 'Donacion — Monto'],
+      ['donacion_rec_monto_2024', 'Donacion — Monto 2024'],
+      ['donacion_rec_monto_2025', 'Donacion — Monto 2025'],
       ['donacion_rec_fecha', 'Donacion — Fecha'],
       ['donacion_rec_detalle', 'Donacion — Detalle'],
       ['prestamos_recibidos', 'Recibio prestamos'],
       ['prestamo_rec_concepto', 'Prestamo — Concepto'],
-      ['prestamo_rec_monto', 'Prestamo — Monto'],
+      ['prestamo_rec_monto_2024', 'Prestamo — Monto 2024'],
+      ['prestamo_rec_monto_2025', 'Prestamo — Monto 2025'],
       ['prestamo_rec_fecha', 'Prestamo — Fecha'],
       ['prestamo_rec_detalle', 'Prestamo — Detalle'],
       ['venta_no_alcanzada', 'Venta bien no alcanzado'],
       ['venta_no_alc_concepto', 'Venta no alc — Concepto'],
-      ['venta_no_alc_monto', 'Venta no alc — Monto'],
+      ['venta_no_alc_monto_2024', 'Venta no alc — Monto 2024'],
+      ['venta_no_alc_monto_2025', 'Venta no alc — Monto 2025'],
       ['venta_no_alc_fecha', 'Venta no alc — Fecha'],
       ['venta_no_alc_detalle', 'Venta no alc — Detalle'],
     ]},
