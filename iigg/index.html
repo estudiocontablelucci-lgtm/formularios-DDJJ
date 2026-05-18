@@ -279,7 +279,7 @@
 
   <div class="intro-box">
     <h2>Antes de comenzar</h2>
-    <p>Este formulario releva la información necesaria para liquidar el <strong style="color:var(--light);font-weight:400">Impuesto a las Ganancias de Personas Humanas</strong> (Ley 20.628 T.O. 2019) correspondiente a los ejercicios fiscales <strong style="color:var(--light);font-weight:400">2024</strong> y <strong style="color:var(--light);font-weight:400">2025</strong>.</p>
+    <p>Este formulario releva la información necesaria para liquidar el <strong style="color:var(--light);font-weight:400">Impuesto a las Ganancias de Personas Humanas</strong> (Ley 20.628 T.O. 2019) correspondiente al <strong style="color:var(--light);font-weight:400">ejercicio fiscal seleccionado</strong>.</p>
     <p style="margin-top:.6rem">Completa únicamente las secciónes que correspondan a tu situación. Las que no apliquen pueden dejarse vacías. El formulario se autoguarda en esté navegador.</p>
     <p class="legal" style="color:var(--muted)">Los montos se cargan como totales anuales. Los topes legales y deducciónes los aplica el estudio en la liquidación.</p>
   </div>
@@ -298,12 +298,23 @@
     </div>
     <div class="section-body">
       <div class="field">
-        <label>Residencia fiscal: &#191;fuiste residente fiscal en Argentina durante todo el período 2024-2025? *</label>
+        <label>Ejercicio fiscal</label>
+        <select name="ejercicio" id="ejercicioSelect" required>
+          <option value="" disabled selected>Seleccionar año</option>
+          <option value="2020">2020</option><option value="2021">2021</option><option value="2022">2022</option><option value="2023">2023</option><option value="2024">2024</option><option value="2025">2025</option><option value="2026">2026</option><option value="2027">2027</option><option value="2028">2028</option><option value="2029">2029</option><option value="2030">2030</option><option value="2031">2031</option><option value="2032">2032</option><option value="2033">2033</option><option value="2034">2034</option><option value="2035">2035</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>&#191;Fuiste residente fiscal en Argentina durante todo el ejercicio? *</label>
         <div class="radio-group inline">
-          <label class="radio-option"><input type="radio" name="residente_fiscal" value="Sí, ambos años"> Sí, ambos años</label>
-          <label class="radio-option"><input type="radio" name="residente_fiscal" value="Solo 2024"> Solo en 2024</label>
-          <label class="radio-option"><input type="radio" name="residente_fiscal" value="Solo 2025"> Solo en 2025</label>
-          <label class="radio-option"><input type="radio" name="residente_fiscal" value="No"> No</label>
+          <label class="radio-option"><input type="radio" name="residente_fiscal" value="Si" onchange="toggleReveal('cambio_residencia')"> Sí</label>
+          <label class="radio-option"><input type="radio" name="residente_fiscal" value="No" onchange="toggleReveal('cambio_residencia')"> No (residente del exterior)</label>
+        </div>
+      </div>
+      <div id="reveal_cambio_residencia" class="reveal-slot" style="display:none">
+        <div class="field">
+          <label>Detalle de residencia fiscal en el exterior</label>
+          <textarea name="cambio_residencia" placeholder="País de residencia, fecha de salida de Argentina, si aplica doble imposición..."></textarea>
         </div>
       </div>
       <div class="field">
@@ -1136,6 +1147,8 @@ function toast(msg, type='success') {
  * Default trigger value is "Sí". Use { slot, value } for other trigger values.
  */
 const REVEAL_MAP = {
+  /* A */
+  residente_fiscal:           { slot: 'cambio_residencia', value: 'No' },
   /* B */
   hijo_incapacitado:      'hijo_incap_cant',
   /* C */

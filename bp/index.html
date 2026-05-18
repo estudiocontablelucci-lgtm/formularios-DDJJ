@@ -264,14 +264,15 @@
       <div class="field">
         <label>¿Fuiste residente fiscal en Argentina durante todo el ejercicio? *</label>
         <div class="radio-group inline">
-          <label class="radio-option"><input type="radio" name="residente_fiscal" value="Si"> Sí</label>
-          <label class="radio-option"><input type="radio" name="residente_fiscal" value="No"> No (residente del exterior)</label>
+          <label class="radio-option"><input type="radio" name="residente_fiscal" value="Si" onchange="toggleReveal('cambio_residencia')"> Sí</label>
+          <label class="radio-option"><input type="radio" name="residente_fiscal" value="No" onchange="toggleReveal('cambio_residencia')"> No (residente del exterior)</label>
         </div>
-        <span class="hint">Si dejaste el país, indicar fecha de salida en el campo de abajo.</span>
       </div>
-      <div class="field">
-        <label>Si hubo cambio de residencia, fecha y país de destino</label>
-        <textarea name="cambio_residencia" placeholder="Ej: salida 15/06/2025, España"></textarea>
+      <div id="reveal_cambio_residencia" class="reveal-slot" style="display:none">
+        <div class="field">
+          <label>Detalle de residencia fiscal en el exterior</label>
+          <textarea name="cambio_residencia" placeholder="País de residencia, fecha de salida de Argentina, si aplica doble imposición..."></textarea>
+        </div>
       </div>
       <div class="field">
         <label>Estado civil al 31/12 *</label>
@@ -1243,6 +1244,8 @@ function toggleSection(head, event) {
 
 /* ─────────────── Progressive reveal ─────────────── */
 const REVEAL_MAP = {
+  /* A */
+  residente_fiscal:           { slot: 'cambio_residencia', value: 'No' },
   /* B */
   tiene_inmuebles_pais:     'inmuebles_pais_detalle',
   mas_inm_pais2:            'inm_pais2',
