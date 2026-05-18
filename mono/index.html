@@ -3,8 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="../favicon.ico" type="image/x-icon">
-<link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <title>Inscripción Monotributo — Lucci & Asociados</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -666,15 +664,21 @@
 
   <!-- FIRMA -->
   <div class="firma-box">
-    <p>La información suministrada en este cuestionario es correcta y completa a mi leal saber y entender. Los trámites de inscripción se realizarán sobre la base de los datos aquí consignados.</p>
+    <h3>Conformidad</h3>
+    <div class="field" style="margin-bottom:1rem">
+      <label class="check-option" style="font-size:13px;color:var(--muted);line-height:1.7;align-items:flex-start">
+        <input type="checkbox" name="conformidad" id="conformidadCheck" value="Si" style="margin-top:4px" required>
+        Declaro bajo juramento que la información proporcionada en este formulario es completa y veraz a mi leal saber y entender. Asumo responsabilidad por eventuales omisiones o datos incorrectos (Art. 11, Ley 11.683). Autorizo a Lucci & Asociados a utilizar estos datos para la inscripción al Monotributo y trámites asociados.
+      </label>
+    </div>
     <div class="firma-line">
       <div class="firma-campo">
         <label>Nombre completo</label>
-        <input type="text" name="firma_nombre">
+        <input type="text" name="firma_nombre" required>
       </div>
       <div class="firma-campo">
         <label>Fecha</label>
-        <input type="text" name="firma_fecha" id="firmaFecha">
+        <input type="text" name="firma_fecha" id="firmaFecha" readonly>
       </div>
     </div>
   </div>
@@ -863,9 +867,30 @@ function recolectarDatos() {
 
 const WEBHOOK_URL = 'https://n8n.estudiolucci.com.ar/webhook/mono';
 
+async function generarHash(texto) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(texto);
+  const buffer = await crypto.subtle.digest('SHA-256', data);
+  return Array.from(new Uint8Array(buffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+}
+
 async function enviarRespuestas() {
+  if (!document.getElementById('conformidadCheck').checked) {
+    mostrarToast('Debés aceptar la declaración de conformidad para enviar.', 'error');
+    return;
+  }
+  if (!document.querySelector('[name="firma_nombre"]').value.trim()) {
+    mostrarToast('Debés completar tu nombre completo para enviar.', 'error');
+    return;
+  }
   if (!confirm('Vas a enviar tus respuestas al estudio. ¿Confirmar?')) return;
   const datos = recolectarDatos();
+  const payload = {
+    _formulario: 'Monotributo',
+    _fecha_envio: new Date().toISOString(),
+    ...datos
+  };
+  payload._hash = await generarHash(JSON.stringify(payload));
   const btn = document.querySelector('.btn-primary');
   const textoOriginal = btn.textContent;
   btn.textContent = 'Enviando...';
@@ -874,11 +899,7 @@ async function enviarRespuestas() {
     const res = await fetch(WEBHOOK_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        _formulario: 'Monotributo',
-        _fecha_envio: new Date().toISOString(),
-        ...datos
-      })
+      body: JSON.stringify(payload)
     });
     if (!res.ok) throw new Error('Error ' + res.status);
     mostrarToast('Respuestas enviadas correctamente', 'success');
