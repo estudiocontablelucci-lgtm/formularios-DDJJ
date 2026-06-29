@@ -73,6 +73,11 @@
   .intro-box p { color: var(--muted); font-size: 13px; line-height: 1.7; font-weight: 400; }
   .intro-box .legal { margin-top: .85rem; padding-top: .85rem; border-top: 1px solid var(--border); font-size: 11px; letter-spacing: .04em; }
 
+  /* BLOCK SEPARATOR */
+  .block-separator { display: flex; align-items: center; gap: 1rem; margin: 2rem 0 1rem; }
+  .block-separator::before, .block-separator::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .block-separator span { font-family: var(--sans); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+
   /* SECTION */
   .section { background: var(--dark2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden; }
   .section-head { padding: 1rem 1.5rem; display: flex; align-items: center; gap: .75rem; cursor: pointer; user-select: none; transition: background .15s; }
@@ -281,6 +286,7 @@
     <h2>Antes de comenzar</h2>
     <p>Este formulario releva la información necesaria para liquidar el <strong style="color:var(--light);font-weight:400">Impuesto a las Ganancias de Personas Humanas</strong> (Ley 20.628 T.O. 2019) correspondiente al <strong style="color:var(--light);font-weight:400">ejercicio fiscal seleccionado</strong>.</p>
     <p style="margin-top:.6rem">Completa únicamente las secciónes que correspondan a tu situación. Las que no apliquen pueden dejarse vacías. El formulario se autoguarda en esté navegador.</p>
+    <p style="margin-top:.6rem"><strong style="color:var(--light);font-weight:400">Tiempo estimado:</strong> ~10 minutos (menos si muchas secciones no aplican).</p>
     <p class="legal" style="color:var(--muted)">Los montos se cargan como totales anuales. Los topes legales y deducciónes los aplica el estudio en la liquidación.</p>
   </div>
 
@@ -399,6 +405,8 @@
       </div>
     </div>
   </div>
+
+  <div class="block-separator"><span>Ingresos</span></div>
 
   <!-- C. INGRESOS POR TRABAJO ═══════════════════════════════════════════ -->
   <div class="section">
@@ -811,6 +819,8 @@
     </div>
   </div>
 
+  <div class="block-separator"><span>Finanzas y deducciones</span></div>
+
   <!-- H. INVERSIONES Y CUENTAS BANCARIAS ═══════════════════════════════ -->
   <div class="section">
     <div class="section-head" onclick="toggleSection(this, event)">
@@ -906,6 +916,8 @@
       </div>
     </div>
   </div>
+
+  <div class="block-separator"><span>Patrimonio y cierre</span></div>
 
   <!-- J. MOVIMIENTOS NO GRAVADOS ═══════════════════════════════════════ -->
   <div class="section">

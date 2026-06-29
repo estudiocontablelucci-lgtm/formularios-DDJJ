@@ -73,6 +73,11 @@
   .intro-box p { color: var(--muted); font-size: 13px; line-height: 1.7; font-weight: 400; }
   .intro-box .legal { margin-top: .85rem; padding-top: .85rem; border-top: 1px solid var(--border); font-size: 11px; letter-spacing: .04em; }
 
+  /* BLOCK SEPARATOR */
+  .block-separator { display: flex; align-items: center; gap: 1rem; margin: 2rem 0 1rem; }
+  .block-separator::before, .block-separator::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .block-separator span { font-family: var(--sans); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+
   /* SECTION */
   .section { background: var(--dark2); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden; }
   .section-head { padding: 1rem 1.5rem; display: flex; align-items: center; gap: .75rem; cursor: pointer; user-select: none; transition: background .15s; }
@@ -238,6 +243,7 @@
     <h2>Antes de comenzar</h2>
     <p>Este formulario releva los <strong style="color:var(--light);font-weight:400">bienes y deudas</strong> que poseías al <strong style="color:var(--light);font-weight:400">cierre del ejercicio fiscal seleccionado</strong>, necesarios para liquidar el Impuesto sobre los Bienes Personales (Ley 23.966 y modif.).</p>
     <p style="margin-top:.6rem">Completá únicamente las secciones que correspondan a tu situación. Las que no apliquen pueden dejarse vacías. El formulario se autoguarda en este navegador.</p>
+    <p style="margin-top:.6rem"><strong style="color:var(--light);font-weight:400">Tiempo estimado:</strong> ~10 minutos (menos si muchas secciones no aplican).</p>
     <p class="legal" style="color:var(--muted)">Valuaciones a fecha de corte 31/12 de cada ejercicio. Para bienes en moneda extranjera usamos cotización BNA tipo comprador al 31/12.</p>
   </div>
 
@@ -300,6 +306,8 @@
       </div>
     </div>
   </div>
+
+  <div class="block-separator"><span>Bienes físicos</span></div>
 
   <!-- ══ B. INMUEBLES EN EL PAÍS ════════════════════════════════════════════ -->
   <div class="section">
@@ -572,6 +580,8 @@
     </div>
   </div>
 
+  <div class="block-separator"><span>Dinero y finanzas</span></div>
+
   <!-- ══ F. DINERO EN EFECTIVO ═════════════════════════════════════════════ -->
   <div class="section">
     <div class="section-head" onclick="toggleSection(this, event)">
@@ -724,6 +734,8 @@
       </div>
     </div>
   </div>
+
+  <div class="block-separator"><span>Participaciones y otros activos</span></div>
 
   <!-- ══ K. PARTICIPACIONES SOCIETARIAS ════════════════════════════════════ -->
   <div class="section">
@@ -1015,6 +1027,8 @@
       </div>
     </div>
   </div>
+
+  <div class="block-separator"><span>Complementarios</span></div>
 
   <!-- ══ N. OBJETOS PERSONALES Y DEL HOGAR ═════════════════════════════════ -->
   <div class="section">
