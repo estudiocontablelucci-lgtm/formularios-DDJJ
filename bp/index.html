@@ -1500,6 +1500,8 @@ function limpiarForm() {
   if (!confirm('¿Borrar todas las respuestas?')) return;
   localStorage.removeItem(FORM_KEY);
   document.getElementById('mainForm').reset();
+  // reset() la deja en blanco, y es readonly: el cliente no podría volver a ponerla.
+  document.getElementById('firmaFecha').value = new Date().toLocaleDateString('es-AR');
   actualizarProgreso();
   syncAllReveals();
   toast('Formulario reiniciado', 'success');
@@ -1838,8 +1840,10 @@ window.addEventListener('DOMContentLoaded', () => {
   document.getElementById('mainForm').addEventListener('input', guardar);
   document.getElementById('mainForm').addEventListener('change', function() { guardar(); syncAllReveals(); });
   syncAllReveals();
+  /* Siempre, no solo si está vacía: restaurar() ya la llenó con la del día en que se
+     guardó, y la firma es del día en que se envía. */
   const f = document.getElementById('firmaFecha');
-  if (f && !f.value) f.value = new Date().toLocaleDateString('es-AR');
+  if (f) f.value = new Date().toLocaleDateString('es-AR');
   const enviado = localStorage.getItem('lucci_bp_enviado');
   if (enviado) mostrarEnviado(enviado);
 });
