@@ -107,6 +107,9 @@ Logo: JPEG base64 embebido, compartido entre los cuatro archivos.
 - **Autoguardado** en localStorage por formulario; `syncAllReveals()` al restaurar.
 - **Export XLSX** con estilos vía xlsx-js-style (CDN).
 - **Conformidad legal**: checkbox obligatorio (Art. 11 Ley 11.683) + nombre + fecha.
+  La fecha es readonly y es la del día: se escribe **después** de restaurar el
+  guardado y **después** de `reset()`. En los cuatro la restauración la pisaba con
+  la del primer guardado, y "Limpiar" la dejaba en blanco sin forma de corregirla.
 - **Envío**: `fetch()` POST al webhook n8n. Hash SHA-256 del payload; la IP la
   captura n8n desde headers de Cloudflare.
 
@@ -161,12 +164,21 @@ están plegados. La distinción es "no aplica" contra "no está a la vista".
 ## `/sas/` — lo que no tienen los otros tres
 
 Es el único que valida **entre** campos, y por eso su JS no se parece al de los
-demás. Tres reglas que se hacen cumplir en vivo y bloquean el envío:
+demás. Bloquea el envío sólo lo que no se puede arreglar leyendo la planilla
+después — quiénes son los socios, cómo se reparten el capital y quién administra:
 
-- **Las participaciones suman 100.** El panel de reparto muestra cuánto falta o
-  sobra, y con el capital cargado, cuántos pesos le tocan a cada socio.
+- **Cada tarjeta de socio tiene nombre.** El formulario arranca con dos; en una
+  SAS unipersonal la segunda quedaba vacía y viajaba como un socio 2 con
+  nacionalidad y nada más (`socios_cantidad: 2`), elegible incluso como suplente.
+- **Las participaciones suman 100, y cada una está entre 0 (excluido) y 100.** La
+  suma sola no alcanza: 110 y −10 suman 100, y 100 y 0 también. El panel de reparto
+  muestra cuánto falta o sobra y, con el capital cargado, cuántos pesos le tocan a
+  cada socio.
 - **El suplente no puede ser titular.** La designación de suplente es obligatoria,
   así que con un único titular el suplente tiene que ser otra persona.
+
+Y una que **avisa pero no bloquea**:
+
 - **El capital contra el mínimo legal**, que es `CAPITAL_MINIMO` — un solo objeto
   con `monto`, `referencia` y `vigencia`. Son 2 SMVM y **se mueve varias veces al
   año**: el formulario muestra la fecha desde la que rige en vez de afirmar el
@@ -177,7 +189,15 @@ demás. Tres reglas que se hacen cumplir en vivo y bloquean el envío:
 Los administradores se derivan de los socios cargados: los checkboxes de titular y
 el select de suplente se repueblan al escribir un nombre. El estado se guarda por
 **índice** (`admin_titular_socio_N`), no por nombre, para que sobreviva a que el
-socio siga tipeando.
+socio siga tipeando. La contracara: al eliminar un socio los índices se corren, y
+`eliminarSocio` tiene que mover cada designación con su socio. Antes no lo hacía, y
+eliminar al titular dejaba titular al socio siguiente — una designación que nadie
+hizo, sin aviso y con el envío habilitado.
+
+El capital admite centavos: una coma **al final** con hasta dos dígitos es decimal
+(`1.000.000,50`); cualquier otra coma o punto es separador de miles, así que
+`1,000,000` tipeado a la norteamericana sigue siendo un millón. Antes la coma se
+descartaba y los centavos se pegaban al entero: cien veces el capital.
 
 Los socios son tarjetas dinámicas hasta **5** (`MAX_SOCIOS`), que es el tope de
 columnas de la Sheet. Al eliminar uno la lista se **renumera**: se lee el DOM por
