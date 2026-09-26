@@ -92,6 +92,36 @@ texto, 3:1 bordes y anillos de foco.
 
 Logo: JPEG base64 embebido, compartido entre los cuatro archivos.
 
+### Formato que se lee como generado por IA — no usar
+
+Lo marcó Agustín en sep 2026 en la web (`pagina-web/CLAUDE.md`, misma sección)
+porque le resta credibilidad, y se sacó también de acá: se entra a los
+formularios desde la web y son la misma familia visual.
+
+- **Mayúsculas espaciadas** (`uppercase` + `letter-spacing`) en rótulos, badges,
+  labels o separadores. Si el rótulo repite el título, se saca; si agrega
+  información, va en Outfit, en sentence case, sin tracking y sin línea al
+  costado. Las siglas (CUIT, ARCA, IIBB) van en mayúscula porque se escriben así,
+  no por CSS. Tamaños: rótulo de sub-sección o de tarjeta (`.sub-title`,
+  `.socio-num`, `.jurisdiccion-num`) y separador de bloque, 15px Outfit 500;
+  badge 13px; label de firma 14px. Acá solo se cargan Spectral y Outfit: nada
+  va en DM Mono.
+- **Flechas `→` como viñeta.** La flecha queda en links y botones; una lista
+  lleva viñeta común en `--muted`.
+- **Aclaraciones con línea al costado o en itálica.** `.nota` es un recuadro con
+  borde completo (`--border2`) sobre `--card`, en la letra del cuerpo. Los avisos
+  de validación (`.aviso`) llevan el borde completo del color del estado, sin el
+  `border-left` grueso.
+- **Números decorativos "01, 02, 03".** Las letras de sección (A, B, C…) quedan
+  porque el copy las cita ("completá la sección G").
+- **Títulos en dos colores** (una palabra de acento en otro color). Los
+  títulos van en un solo color, la tinta; el teal queda para links, botones y
+  foco.
+- **La antítesis "no es X, sino Y"** y sus variantes ("…después, no en el
+  medio"): se dice Y. Un "no" que marca un alcance o un criterio ("no van acá",
+  "no se declaran") es información, no el patrón. En copy fiscal o normativo se
+  puede cambiar el molde, nunca lo que afirma.
+
 ---
 
 ## Patrones
