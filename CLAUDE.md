@@ -114,8 +114,9 @@ formularios desde la web y son la misma familia visual.
   `border-left` grueso.
 - **Números decorativos "01, 02, 03".** Las letras de sección (A, B, C…) quedan
   porque el copy las cita ("completá la sección G").
-- **Itálica en la palabra de acento de un título.** Sigue en el color de acento,
-  derecha.
+- **Títulos en dos colores** (una palabra de acento en otro color). Los
+  títulos van en un solo color, la tinta; el teal queda para links, botones y
+  foco.
 - **La antítesis "no es X, sino Y"** y sus variantes ("…después, no en el
   medio"): se dice Y. Un "no" que marca un alcance o un criterio ("no van acá",
   "no se declaran") es información, no el patrón. En copy fiscal o normativo se
