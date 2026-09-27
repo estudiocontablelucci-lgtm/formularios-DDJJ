@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Constitución de SAS — Lucci & Asociados</title>
+<title>Constitución de SAS | Lucci & Asociados</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,6 @@
     --mid:          #7a7e84;
     --danger:       #c0392b;
     --success:      #007A5E;
-    --accent-veil:  rgba(0,122,94,.07);
 
     --radius:  6px;
     /* Tipografía de estudiolucci.com.ar (sep 2026) */
@@ -169,7 +168,7 @@
   }
   .radio-option:hover, .check-option:hover { border-color: var(--mid); background: var(--card-hover); }
   .radio-option input, .check-option input { accent-color: var(--accent-text); }
-  .radio-option:has(input:checked), .check-option:has(input:checked) { border-color: var(--accent-text); background: var(--accent-veil); }
+  .radio-option:has(input:checked), .check-option:has(input:checked) { border-color: var(--text); }
 
   .sub-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
   .sub-title { font-size: 15px; font-weight: 500; color: var(--text); padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
@@ -219,7 +218,7 @@
   .btn-primary { background: var(--accent-text); color: #FBFAF6; border-color: var(--accent-text); }
   .btn-primary:hover { background: #00624B; border-color: #00624B; }
   .btn-add { background: transparent; border: 1px dashed var(--mid); color: var(--accent-text); font-size: 14px; padding: .5rem 1rem; border-radius: var(--radius); cursor: pointer; font-family: var(--font-sans); transition: all .2s; width: 100%; text-align: center; }
-  .btn-add:hover { border-color: var(--accent-text); background: var(--accent-veil); }
+  .btn-add:hover { border-color: var(--text); background: var(--card-hover); }
 
   /* TOAST */
   .toast { position: fixed; bottom: 1.5rem; right: 1rem; left: 1rem; background: var(--card); border: 1px solid var(--border2); border-radius: var(--radius); padding: .75rem 1.25rem; font-size: 14px; color: var(--text); z-index: 999; opacity: 0; transform: translateY(8px); transition: all .3s; max-width: 300px; margin-left: auto; pointer-events: none; box-shadow: 0 4px 16px rgba(22,32,47,.14); }
@@ -275,7 +274,7 @@
   .aviso { font-size: 14px; line-height: 1.6; border-radius: var(--radius); padding: .7rem 1rem; border: 1px solid var(--border); }
   .aviso.hidden { display: none; }
   .aviso.error { border-color: var(--danger); color: var(--danger); background: rgba(192,57,43,.06); }
-  .aviso.ok { border-color: var(--success); color: var(--success); background: var(--accent-veil); }
+  .aviso.ok { border-color: var(--success); color: var(--success); }
 
   /* Lista de titulares: checkboxes que se repueblan con los socios cargados */
   .admin-lista { display: flex; flex-direction: column; gap: .4rem; }
@@ -327,7 +326,7 @@
 
 <div class="form-shell">
   <div class="intro-box">
-    <h2>Constitución de SAS — Relevamiento de datos</h2>
+    <h2>Constitución de SAS: relevamiento de datos</h2>
     <p>Con esta información armamos el instrumento constitutivo de la Sociedad por Acciones Simplificada. Los datos van a un documento legal, así que conviene copiarlos del DNI y de la constancia de CUIT en lugar de escribirlos de memoria. Se guarda solo en tu navegador mientras lo completás: podés cerrarlo y seguir después. Ante cualquier duda dejá el campo en blanco y lo coordinamos.</p>
   </div>
 
@@ -351,17 +350,17 @@
         La denominación tiene que estar disponible en el registro para poder reservarla. <strong>Pedimos tres opciones en orden de preferencia</strong> para no frenar el trámite si la primera ya está tomada.
       </div>
       <div class="field">
-        <label>Denominación — primera opción *</label>
+        <label>Denominación (primera opción) *</label>
         <span class="hint">Sin el “SAS” al final: lo agregamos nosotros</span>
         <input type="text" name="soc_denominacion_1" placeholder="Ej: La Empresa" required>
       </div>
       <div class="field-grid">
         <div class="field">
-          <label>Denominación — segunda opción</label>
+          <label>Denominación (segunda opción)</label>
           <input type="text" name="soc_denominacion_2">
         </div>
         <div class="field">
-          <label>Denominación — tercera opción</label>
+          <label>Denominación (tercera opción)</label>
           <input type="text" name="soc_denominacion_3">
         </div>
       </div>
@@ -374,7 +373,7 @@
         <label>Jurisdicción donde se va a inscribir *</label>
         <span class="hint">Determina el registro que interviene y los requisitos del trámite</span>
         <select name="soc_jurisdiccion" required>
-          <option value="">— seleccionar —</option>
+          <option value="">Seleccionar</option>
           <option>Provincia de Buenos Aires (DPPJ)</option>
           <option>CABA (IGJ)</option>
           <option>Otra provincia</option>
@@ -450,7 +449,7 @@
     <div id="sec-sas-4" class="section-body">
       <div class="nota">
         El <strong>administrador titular</strong> es el representante legal: gestiona la sociedad y toma las decisiones. Puede ser uno de los socios o los dos.<br><br>
-        El <strong>administrador suplente</strong> reemplaza al titular solo si éste no puede ejercer por un motivo especial —fallecimiento, incapacidad—. Mientras eso no ocurra, el representante legal sigue siendo el titular. La designación de un suplente es obligatoria.<br><br>
+        El <strong>administrador suplente</strong> reemplaza al titular solo si éste no puede ejercer por un motivo especial (fallecimiento, incapacidad). Mientras eso no ocurra, el representante legal sigue siendo el titular. La designación de un suplente es obligatoria.<br><br>
         Si hay un <strong>único titular</strong>, el suplente tiene que ser otra persona: no puede ser titular y suplente al mismo tiempo.
       </div>
 
@@ -483,7 +482,7 @@
             <div class="field">
               <label>Estado civil</label>
               <select name="admin_tit_ext_estado_civil">
-                <option value="">— seleccionar —</option>
+                <option value="">Seleccionar</option>
                 <option>Soltero/a</option>
                 <option>Casado/a</option>
                 <option>Unión convivencial</option>
@@ -547,7 +546,7 @@
             <div class="field">
               <label>Estado civil</label>
               <select name="admin_sup_ext_estado_civil">
-                <option value="">— seleccionar —</option>
+                <option value="">Seleccionar</option>
                 <option>Soltero/a</option>
                 <option>Casado/a</option>
                 <option>Unión convivencial</option>
@@ -634,7 +633,7 @@
       <div class="field">
         <label>Provincia *</label>
         <select name="sede_provincia" id="sedeProvincia" required>
-          <option value="">— seleccionar —</option>
+          <option value="">Seleccionar</option>
         </select>
       </div>
     </div>
@@ -658,7 +657,7 @@
       <div class="field">
         <label>Fecha de cierre *</label>
         <div class="radio-group">
-          <label class="radio-option"><input type="radio" name="cierre_ejercicio" value="31 de diciembre" required> 31 de diciembre <span style="color:var(--muted)">— lo usual</span></label>
+          <label class="radio-option"><input type="radio" name="cierre_ejercicio" value="31 de diciembre" required> 31 de diciembre <span style="color:var(--muted)">(lo usual)</span></label>
           <label class="radio-option"><input type="radio" name="cierre_ejercicio" value="31 de marzo"> 31 de marzo</label>
           <label class="radio-option"><input type="radio" name="cierre_ejercicio" value="30 de junio"> 30 de junio</label>
           <label class="radio-option"><input type="radio" name="cierre_ejercicio" value="31 de octubre"> 31 de octubre</label>
@@ -823,7 +822,7 @@ function cardSocio(n) {
       <div class="field">
         <label>Estado civil *</label>
         <select name="socio_${n}_estado_civil" data-campo="estado_civil" data-rol="estado-civil" required>
-          <option value="">— seleccionar —</option>
+          <option value="">Seleccionar</option>
           <option>Soltero/a</option>
           <option>Casado/a</option>
           <option>Unión convivencial</option>
@@ -881,7 +880,7 @@ function cardSocio(n) {
       <div class="field">
         <label>Provincia *</label>
         <select name="socio_${n}_dom_provincia" data-campo="dom_provincia" data-rol="provincia" required>
-          <option value="">— seleccionar —</option>
+          <option value="">Seleccionar</option>
         </select>
       </div>
     </div>
@@ -1038,8 +1037,8 @@ function renderReparto() {
     const val = document.createElement('span');
     val.className = 'valor';
     if (!p) val.textContent = 'sin porcentaje';
-    else if (!pctValido(p)) val.textContent = fmtPct(p) + ' % — no válido';
-    else val.textContent = fmtPct(p) + ' %' + (capital ? ' — ' + fmtMoneda.format(capital * p / 100) : '');
+    else if (!pctValido(p)) val.textContent = fmtPct(p) + ' % (no válido)';
+    else val.textContent = fmtPct(p) + ' %' + (capital ? ' (' + fmtMoneda.format(capital * p / 100) + ')' : '');
 
     fila.append(nom, val);
     panel.appendChild(fila);
@@ -1053,10 +1052,10 @@ function renderReparto() {
   tl.textContent = 'Total';
   const tv = document.createElement('span');
   tv.className = 'valor';
-  if (cerrado) tv.textContent = '100 % ✓';
+  if (cerrado) tv.textContent = '100 %';
   else if (sumaCierra) tv.textContent = '100\u00a0%, pero ' + (invalidos === 1 ? 'un socio no tiene' : invalidos + ' socios no tienen') + ' un porcentaje válido';
-  else if (suma < 100) tv.textContent = fmtPct(suma) + ' % — faltan ' + fmtPct(100 - suma) + ' %';
-  else tv.textContent = fmtPct(suma) + ' % — sobran ' + fmtPct(suma - 100) + ' %';
+  else if (suma < 100) tv.textContent = fmtPct(suma) + ' %, faltan ' + fmtPct(100 - suma) + ' %';
+  else tv.textContent = fmtPct(suma) + ' %, sobran ' + fmtPct(suma - 100) + ' %';
   total.append(tl, tv);
   panel.appendChild(total);
 
@@ -1081,7 +1080,7 @@ function validarCapital() {
 /* ------------------------------------------------------------ administradores */
 
 function nombreSocio(s, i) {
-  return (s.nombre || '').trim() || ('Socio ' + (i + 1) + ' — sin nombre todavía');
+  return (s.nombre || '').trim() || ('Socio ' + (i + 1) + ' (sin nombre todavía)');
 }
 
 function renderAdmins() {
@@ -1137,7 +1136,7 @@ function renderAdmins() {
   const sel = document.getElementById('suplenteSelect');
   const previo = sel.value;
   sel.innerHTML = '';
-  sel.add(new Option('— seleccionar —', ''));
+  sel.add(new Option('Seleccionar', ''));
   socios.forEach((s, i) => sel.add(new Option(nombreSocio(s, i), 'socio_' + (i + 1))));
   sel.add(new Option('Otra persona que no es socio', 'externo'));
   if (Array.from(sel.options).some(o => o.value === previo)) sel.value = previo;
@@ -1340,7 +1339,7 @@ function guardarProgreso(silencioso) {
   const data = snapshot();
   data['__sociosCount'] = sociosCount;
   localStorage.setItem('lucci_sas_progreso', JSON.stringify(data));
-  document.getElementById('autosaveIndicator').textContent = 'Progreso guardado — ' + new Date().toLocaleTimeString('es-AR');
+  document.getElementById('autosaveIndicator').textContent = 'Progreso guardado: ' + new Date().toLocaleTimeString('es-AR');
   if (!silencioso) mostrarToast('Progreso guardado correctamente', 'success');
 }
 

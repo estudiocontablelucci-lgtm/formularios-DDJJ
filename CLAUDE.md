@@ -55,8 +55,10 @@ link. **Si cambia la paleta de la web, cambiar acá también.**
 /* Propios del formulario: la web no tiene campos y no los define */
 --border-input: #7a7e84   --placeholder: #5A6472   --mid: #7a7e84
 --danger: #c0392b         --success: #007A5E
---accent-veil: rgba(0,122,94,.07)
 ```
+
+No hay `--accent-veil`: existía sólo para teñir estados (opción marcada, hover
+de `.btn-add`, `.alerta-mono`) y se sacó con el último uso, en sep 2026.
 
 ### Reglas de color que no son negociables
 
@@ -137,8 +139,19 @@ formularios desde la web y son la misma familia visual.
   `.socio-num`, `.jurisdiccion-num`, `.slot-card-title`) y separador de bloque,
   15px Schibsted 500; badge 13px; label de firma 14px. Nada va en DM Mono: las
   cifras van en IBM Plex Sans (ver Tipografía).
-- **Flechas `→` como viñeta.** La flecha queda en links y botones; una lista
-  lleva viñeta común en `--muted`.
+- **Flechas como viñeta o adorno** (`→` al final de un link o una tarjeta, `←`,
+  `↗`). Una lista lleva viñeta común en `--muted`; un link, sólo el texto. Queda
+  el `▾` de las secciones: es el indicador del acordeón y gira al abrir.
+- **Emoji o glifos como íconos** (📋, 💼, ✓). Las tarjetas de la landing van sin
+  ícono, y el total del reparto de `sas` dice "100 %" sin tilde.
+- **Estado seleccionado tintado** (fondo y borde del acento). Una opción marcada
+  lleva borde de tinta y el fondo normal:
+  `.radio-option:has(input:checked), .check-option:has(input:checked) { border-color: var(--text); }`.
+  El radio o el check ya dice cuál es. Los hover van en `--card-hover`, neutro.
+- **La raya (—) como conector.** Va coma, dos puntos o paréntesis; en el
+  `<title>`, `|`. La opción vacía de un `select` es "Seleccionar". Quedan la raya
+  suelta que marca vacío (la letra de "Datos personales" en `mono`, los
+  placeholders `$ —`), las de comentarios y las de los rótulos del XLSX exportado.
 - **Aclaraciones con línea al costado o en itálica.** `.nota` es un recuadro con
   borde completo (`--border2`) sobre `--card`, en la letra del cuerpo. Los avisos
   de validación (`.aviso`) llevan el borde completo del color del estado, sin el
