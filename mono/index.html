@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Inscripción Monotributo — Lucci & Asociados</title>
+<title>Inscripción Monotributo | Lucci & Asociados</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -36,7 +36,6 @@
     --mid:          #7a7e84;
     --danger:       #c0392b;
     --success:      #007A5E;
-    --accent-veil:  rgba(0,122,94,.07);
 
     --radius:  6px;
     /* Tipografía de estudiolucci.com.ar (sep 2026) */
@@ -169,7 +168,7 @@
   }
   .radio-option:hover, .check-option:hover { border-color: var(--mid); background: var(--card-hover); }
   .radio-option input, .check-option input { accent-color: var(--accent-text); }
-  .radio-option:has(input:checked), .check-option:has(input:checked) { border-color: var(--accent-text); background: var(--accent-veil); }
+  .radio-option:has(input:checked), .check-option:has(input:checked) { border-color: var(--text); }
 
   .sub-section { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
   .sub-title { font-size: 15px; font-weight: 500; color: var(--text); padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
@@ -216,7 +215,7 @@
   .btn-primary { background: var(--accent-text); color: #FBFAF6; border-color: var(--accent-text); }
   .btn-primary:hover { background: #00624B; border-color: #00624B; }
   .btn-add { background: transparent; border: 1px dashed var(--mid); color: var(--accent-text); font-size: 14px; padding: .5rem 1rem; border-radius: var(--radius); cursor: pointer; font-family: var(--font-sans); transition: all .2s; width: 100%; text-align: center; }
-  .btn-add:hover { border-color: var(--accent-text); background: var(--accent-veil); }
+  .btn-add:hover { border-color: var(--text); background: var(--card-hover); }
 
   /* TOAST */
   .toast { position: fixed; bottom: 1.5rem; right: 1rem; left: 1rem; background: var(--card); border: 1px solid var(--border2); border-radius: var(--radius); padding: .75rem 1.25rem; font-size: 14px; color: var(--text); z-index: 999; opacity: 0; transform: translateY(8px); transition: all .3s; max-width: 300px; margin-left: auto; pointer-events: none; box-shadow: 0 4px 16px rgba(22,32,47,.14); }
@@ -295,7 +294,7 @@
 
 <div class="form-shell">
   <div class="intro-box">
-    <h2>Cuestionario de inscripción — Monotributo</h2>
+    <h2>Cuestionario de inscripción: Monotributo</h2>
     <p>Completá la información con la mayor precisión posible. Algunos datos son necesarios para determinar la categoría y tramitar la inscripción ante ARCA. Ante cualquier duda dejá el campo en blanco y lo coordinamos.</p>
   </div>
 
@@ -335,7 +334,7 @@
         <div class="field">
           <label>Estado civil</label>
           <select name="estado_civil">
-            <option value="">— seleccionar —</option>
+            <option value="">Seleccionar</option>
             <option>Soltero/a</option>
             <option>Casado/a</option>
             <option>Unión convivencial</option>
@@ -374,7 +373,7 @@
           <div class="field">
             <label>Provincia</label>
             <select name="domicilio_provincia">
-              <option value="">— seleccionar —</option>
+              <option value="">Seleccionar</option>
               <option>Buenos Aires</option><option>CABA</option><option>Catamarca</option>
               <option>Chaco</option><option>Chubut</option><option>Córdoba</option>
               <option>Corrientes</option><option>Entre Ríos</option><option>Formosa</option>
@@ -403,7 +402,7 @@
       </button>
     </h3>
     <div id="sec-mono-2" class="section-body">
-      <div class="nota">Describirla con el mayor detalle posible: qué producís, vendés o prestás, a quién y cómo. No es necesario conocer el código de actividad — lo asignamos nosotros.</div>
+      <div class="nota">Describirla con el mayor detalle posible: qué producís, vendés o prestás, a quién y cómo. No es necesario conocer el código de actividad: lo asignamos nosotros.</div>
       <div class="field">
         <label>Descripción de la/s actividad/es que realizás *</label>
         <span class="hint">Si tenés más de una actividad, describilas todas e indicá cuál es la principal.</span>
@@ -418,7 +417,7 @@
         <div class="field">
           <label>Tipo de actividad principal</label>
           <select name="tipo_actividad">
-            <option value="">— seleccionar —</option>
+            <option value="">Seleccionar</option>
             <option>Venta de cosas muebles (comercio)</option>
             <option>Prestación de servicios</option>
             <option>Producción primaria</option>
@@ -544,7 +543,7 @@
         <div class="field">
           <label>Tipo de cuenta</label>
           <select name="tipo_cuenta">
-            <option value="">— seleccionar —</option>
+            <option value="">Seleccionar</option>
             <option>Caja de ahorro en pesos</option>
             <option>Cuenta corriente</option>
             <option>Cuenta virtual (billetera digital)</option>
@@ -576,7 +575,7 @@
       </button>
     </h3>
     <div id="sec-mono-5" class="section-body">
-      <div class="nota">Como monotributista podés elegir una obra social del padrón habilitado por la Superintendencia de Servicios de Salud. Consultalo en: <a href="https://www.sssalud.gob.ar/?page=listRnosc&tipo=3" target="_blank">sssalud.gob.ar — Obras sociales para monotributistas ↗</a></div>
+      <div class="nota">Como monotributista podés elegir una obra social del padrón habilitado por la Superintendencia de Servicios de Salud. Consultalo en: <a href="https://www.sssalud.gob.ar/?page=listRnosc&tipo=3" target="_blank">sssalud.gob.ar (obras sociales para monotributistas)</a></div>
       <div class="field">
         <label>Obra social elegida</label>
         <span class="hint">Ingresá el nombre tal como figura en el listado. Si todavía no lo decidiste, dejá el campo en blanco y lo coordinamos.</span>
@@ -593,7 +592,7 @@
         <div class="field">
           <label>Integrantes a incorporar</label>
           <span class="hint">Nombre, vínculo (cónyuge / hijo) y fecha de nacimiento de cada uno</span>
-          <textarea name="grupo_familiar_detalle" placeholder="Ej: María García — cónyuge — 15/03/1985"></textarea>
+          <textarea name="grupo_familiar_detalle" placeholder="Ej: María García, cónyuge, 15/03/1985"></textarea>
         </div>
       </div>
     </div>
@@ -628,7 +627,7 @@
             <div class="field">
               <label>Provincia / Jurisdicción</label>
               <select name="jurisdiccion_unica">
-                <option value="">— seleccionar —</option>
+                <option value="">Seleccionar</option>
                 <option>Buenos Aires</option><option>CABA</option><option>Catamarca</option>
                 <option>Chaco</option><option>Chubut</option><option>Córdoba</option>
                 <option>Corrientes</option><option>Entre Ríos</option><option>Formosa</option>
@@ -673,9 +672,9 @@
         </div>
         <div class="field">
           <label>Régimen de CM que estimás aplicable</label>
-          <span class="hint">Si no sabés cuál corresponde, dejá en blanco — lo determinamos nosotros.</span>
+          <span class="hint">Si no sabés cuál corresponde, dejá en blanco: lo determinamos nosotros.</span>
           <select name="cm_regimen">
-            <option value="">— no sé / a determinar —</option>
+            <option value="">No sé / a determinar</option>
             <option>Régimen general (art. 2)</option>
             <option>Construcción (art. 6)</option>
             <option>Entidades financieras (art. 7)</option>
@@ -713,7 +712,7 @@
         <div class="field">
           <label>¿Por qué fue la baja anterior?</label>
           <select name="mono_baja_motivo">
-            <option value="">— seleccionar —</option>
+            <option value="">Seleccionar</option>
             <option>Baja voluntaria</option>
             <option>Exclusión por superar los límites</option>
             <option>Paso a Responsable Inscripto</option>
@@ -805,7 +804,7 @@ function agregarJurisdiccion(savedData) {
       <div class="field">
         <label>Provincia</label>
         <select name="jur_${n}_provincia">
-          <option value="">— seleccionar —</option>
+          <option value="">Seleccionar</option>
           ${PROVINCIAS.map(p=>`<option${savedData&&savedData['jur_'+n+'_provincia']===p?' selected':''}>${p}</option>`).join('')}
         </select>
       </div>
@@ -921,7 +920,7 @@ function guardarProgreso(silencioso) {
   });
   data['__jurCount'] = jurCount;
   localStorage.setItem('lucci_mono_progreso', JSON.stringify(data));
-  document.getElementById('autosaveIndicator').textContent = 'Progreso guardado — ' + new Date().toLocaleTimeString('es-AR');
+  document.getElementById('autosaveIndicator').textContent = 'Progreso guardado: ' + new Date().toLocaleTimeString('es-AR');
   if (!silencioso) mostrarToast('Progreso guardado correctamente', 'success');
 }
 
