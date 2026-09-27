@@ -81,14 +81,45 @@ texto, 3:1 bordes y anillos de foco.
 
 ### Tipografía
 
-| Rol | Tamaño | Peso |
+La misma de estudiolucci.com.ar desde sep 2026 (`pagina-web/app/layout.tsx`).
+**Si cambia en la web, cambiar acá también.** Las familias viven en variables de
+`:root`; las reglas usan la variable, nunca el nombre de la familia:
+
+- `--font-sans` — **Schibsted Grotesk** 400/500/600/700: todo el texto.
+- `--font-num` — **IBM Plex Sans** 400/500/600, siempre con `tabular-nums`: las cifras.
+- `--font-logo` — **Spectral 600, sólo el wordmark** "Lucci & Asociados" del header.
+  Se carga ese único peso. Ningún otro título va en Spectral.
+
+La landing (`/`) no tiene wordmark ni cifras: carga sólo Schibsted y define sólo
+`--font-sans`.
+
+| Rol | Tamaño | Letra |
 |---|---|---|
-| Título del formulario | 1.6rem | Spectral 600 |
-| Título de sección | 1.25rem | Spectral 600 |
-| Sub-sección / Conformidad | 1.0625rem | Spectral 600 |
+| Título del formulario | 1.6rem | Schibsted 600 |
+| Título de sección y Conformidad | 1.25rem | Schibsted 600 |
+| Sub-sección | 1.0625rem | Schibsted 600 |
 | Marca (header) | 1.35rem | Spectral 600 |
-| Labels | 15px | Outfit 400 |
-| Hints y notas | 14px | Outfit 400 |
+| Labels | 15px | Schibsted 400 |
+| Rótulo de tarjeta (`.sub-title`, `.socio-num`, `.jurisdiccion-num`, `.slot-card-title`) | 15px | Schibsted 500 |
+| Hints y notas | 14px | Schibsted 400 |
+| Cifras | la del campo | Plex 400, tabular |
+
+Los títulos llevan `letter-spacing: -0.015em` y `line-height: 1.2`. El wordmark
+conserva su `.01em`.
+
+**Qué va en Plex** lo decide el bloque `CIFRAS` al final del `<style>`, igual en
+los cuatro formularios: montos, porcentajes, cantidades, fechas, CUIT, DNI, CBU,
+teléfonos, el % de avance y el reparto de capital de `sas`. Direcciones, patentes,
+pólizas y números de inscripción (IIBB, CM, partida) quedan en Schibsted.
+
+- Va **por atributo, no por clase**: parte de los campos los arma el JS (socios de
+  `sas`, jurisdicciones de `mono`), y un cambio de estilo no toca el JS.
+- Los montos se reconocen por el **placeholder de moneda** (`$`, `USD`, `EUR`). Un
+  monto nuevo sin ese placeholder queda en Schibsted hasta que su `name` entre al
+  bloque. Los `gastos_venta` de `iigg` ya entran por nombre, porque dos no tienen
+  placeholder.
+- El bloque va al final porque `.firma-campo input` y los `input[type=...]` tienen
+  la misma especificidad: si se mueve más arriba, la fecha de firma vuelve a Schibsted.
 
 Logo: JPEG base64 embebido, compartido entre los cuatro archivos.
 
@@ -100,12 +131,12 @@ formularios desde la web y son la misma familia visual.
 
 - **Mayúsculas espaciadas** (`uppercase` + `letter-spacing`) en rótulos, badges,
   labels o separadores. Si el rótulo repite el título, se saca; si agrega
-  información, va en Outfit, en sentence case, sin tracking y sin línea al
+  información, va en Schibsted, en sentence case, sin tracking y sin línea al
   costado. Las siglas (CUIT, ARCA, IIBB) van en mayúscula porque se escriben así,
   no por CSS. Tamaños: rótulo de sub-sección o de tarjeta (`.sub-title`,
-  `.socio-num`, `.jurisdiccion-num`) y separador de bloque, 15px Outfit 500;
-  badge 13px; label de firma 14px. Acá solo se cargan Spectral y Outfit: nada
-  va en DM Mono.
+  `.socio-num`, `.jurisdiccion-num`, `.slot-card-title`) y separador de bloque,
+  15px Schibsted 500; badge 13px; label de firma 14px. Nada va en DM Mono: las
+  cifras van en IBM Plex Sans (ver Tipografía).
 - **Flechas `→` como viñeta.** La flecha queda en links y botones; una lista
   lleva viñeta común en `--muted`.
 - **Aclaraciones con línea al costado o en itálica.** `.nota` es un recuadro con
@@ -154,6 +185,17 @@ en seco. Trabajan por selector, no con reemplazos globales: `iigg` tiene un bloq
 | `migrar_tema_claro.py` | Migra la paleta al tema claro |
 | `mejorar_titulos.py` | Escala tipográfica y acordeón accesible |
 | `arreglar_progreso.py` | Progreso sobre campos aplicables + saca el 62ch de las cajas |
+| `tipografia_schibsted_plex.py` | Schibsted + Plex para cifras + Spectral sólo en el wordmark (también la landing) |
+
+`verificar_solo_estilo.py` no transforma: se corre **después** de cualquier
+cambio visual y antes de publicar. Compara contra `main` (o `--base DIR`, una
+copia exacta) y falla si cambió un `<script>`, un atributo que no sea
+`class`/`style`, o el copy. Fuera del `<style>` y del `<link>` de fuentes el
+archivo tiene que quedar idéntico.
+
+```bash
+python scripts/verificar_solo_estilo.py            # contra main
+```
 
 > **Los cuatro formularios no comparten el JS, solo el aspecto.** `mono` y `sas`
 > recorren `querySelectorAll` y usan `#progressLabel`; `bp` e `iigg` recorren
