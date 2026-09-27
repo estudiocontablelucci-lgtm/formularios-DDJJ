@@ -7,7 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spectral:wght@600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
 
 <style>
@@ -39,8 +39,10 @@
     --accent-veil:  rgba(0,122,94,.07);
 
     --radius:  6px;
-    --serif:   'Spectral', Georgia, serif;
-    --sans:    'Outfit', system-ui, sans-serif;
+    /* Tipografía de estudiolucci.com.ar (sep 2026) */
+    --font-sans: 'Schibsted Grotesk', system-ui, sans-serif;  /* todo el texto */
+    --font-num:  'IBM Plex Sans', system-ui, sans-serif;      /* cifras */
+    --font-logo: 'Spectral', Georgia, serif;                  /* sólo el wordmark */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -48,7 +50,7 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: var(--sans);
+    font-family: var(--font-sans);
     font-size: 16px;
     font-weight: 400;
     line-height: 1.7;
@@ -69,7 +71,7 @@
     gap: 1.25rem;
   }
   .site-header img { width: 48px; height: 48px; object-fit: contain; }
-  .header-text h1 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--navy-text); letter-spacing: .01em; }
+  .header-text h1 { font-family: var(--font-logo); font-size: 1.35rem; font-weight: 600; color: var(--navy-text); letter-spacing: .01em; }
   .header-text p { font-size: 13px; color: var(--navy-muted); margin-top: 2px; letter-spacing: .04em; font-weight: 400; }
 
   /* PROGRESS */
@@ -83,13 +85,13 @@
 
   /* INTRO */
   .intro-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; }
-  .intro-box h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--text); margin-bottom: .5rem; }
+  .intro-box h2 { font-family: var(--font-sans); font-size: 1.6rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; color: var(--text); margin-bottom: .5rem; }
   .intro-box p { color: var(--muted); font-size: 14px; line-height: 1.7; font-weight: 400; }
   .intro-box .legal { margin-top: .85rem; padding-top: .85rem; border-top: 1px solid var(--border); font-size: 13px; }
 
   /* BLOCK SEPARATOR */
   .block-separator { margin: 2rem 0 .75rem; }
-  .block-separator span { font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--muted); }
+  .block-separator span { font-family: var(--font-sans); font-size: 15px; font-weight: 500; color: var(--muted); }
 
   /* SECTION */
   .section { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); margin-bottom: 1rem; overflow: hidden; }
@@ -112,8 +114,8 @@
   .section-head button:hover { background: var(--card-hover); }
   .section-head button:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -2px; }
   .section-title-wrap { display: flex; align-items: center; gap: .75rem; min-width: 0; flex: 1; }
-  .section-letter { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--muted); width: 22px; flex-shrink: 0; }
-  .section-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--text); min-width: 0; }
+  .section-letter { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; color: var(--muted); width: 22px; flex-shrink: 0; }
+  .section-title { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; color: var(--text); min-width: 0; }
   .section-badge { font-size: 13px; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--border2); color: var(--muted); flex-shrink: 0; font-weight: 400; }
   .section-toggle { color: var(--muted); font-size: 14px; transition: transform .25s; flex-shrink: 0; }
   .section-toggle.open { transform: rotate(180deg); }
@@ -122,7 +124,7 @@
 
   /* SUB SECTION */
   .sub-section { border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
-  .sub-section-title { font-family: var(--serif); font-size: 1.0625rem; color: var(--text); font-weight: 600; }
+  .sub-section-title { font-family: var(--font-sans); font-size: 1.0625rem; color: var(--text); font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; }
 
   /* FIELDS */
   .field { display: flex; flex-direction: column; gap: .4rem; }
@@ -146,7 +148,7 @@
     border: 1px solid var(--border-input);
     border-radius: var(--radius);
     color: var(--text);
-    font-family: var(--sans);
+    font-family: var(--font-sans);
     font-size: 15px;
     font-weight: 400;
     padding: .7rem .9rem;
@@ -215,7 +217,7 @@
   .alerta-mono .btn-continuar {
     display: inline-block;
     padding: .5rem 1.2rem;
-    font-family: var(--sans);
+    font-family: var(--font-sans);
     font-size: 13px;
     font-weight: 400;
     border-radius: var(--radius);
@@ -244,17 +246,16 @@
     gap: .85rem;
   }
   .slot-card-title {
-    font-family: var(--serif);
-    font-size: .9rem;
+    font-size: 15px;
     color: var(--muted);
-    font-weight: 400;
+    font-weight: 500;
   }
 
   /* BUTTONS */
   .btn-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
   .btn {
     padding: .75rem 1.5rem;
-    font-family: var(--sans);
+    font-family: var(--font-sans);
     font-size: 14px;
     font-weight: 400;
     letter-spacing: .03em;
@@ -277,12 +278,12 @@
 
   /* FIRMA */
   .firma-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin-top: 2rem; }
-  .firma-box h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: .5rem; }
+  .firma-box h3 { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; color: var(--text); margin-bottom: .5rem; }
   .firma-box p { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 1rem; font-weight: 400; }
   .firma-line { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-end; }
   .firma-campo { flex: 1; min-width: 160px; }
   .firma-campo label { font-size: 14px; color: var(--muted); display: block; margin-bottom: .3rem; font-weight: 400; }
-  .firma-campo input { background: transparent; border: none; border-bottom: 1px solid var(--border-input); border-radius: 0; color: var(--text); width: 100%; padding: .3rem 0; font-family: var(--sans); font-size: 14px; outline: none; }
+  .firma-campo input { background: transparent; border: none; border-bottom: 1px solid var(--border-input); border-radius: 0; color: var(--text); width: 100%; padding: .3rem 0; font-family: var(--font-sans); font-size: 14px; outline: none; }
 
   @media(max-width:600px) {
     .site-header { padding: 0; }
@@ -296,6 +297,32 @@
     .btn-row { flex-direction: column; }
     .btn { width: 100%; text-align: center; }
     .firma-line { flex-direction: column; gap: 1rem; }
+  }
+
+  /* CIFRAS: IBM Plex Sans con dígitos tabulares en lo que se tipea o se lee como
+     número. Va por atributo y no por clase porque parte de los campos los arma el
+     JS (socios de sas, jurisdicciones de mono) y un cambio de estilo no toca el JS.
+     Los montos se reconocen por el placeholder de moneda ($, USD, EUR).
+     Direcciones, patentes, pólizas y números de inscripción quedan en la letra del texto. */
+  .progress-text,
+  .reparto .valor,
+  input[type="number"],
+  input[type="date"],
+  input[inputmode="numeric"],
+  input[inputmode="decimal"],
+  input[placeholder^="$"],
+  input[placeholder^="USD"],
+  input[placeholder^="EUR"],
+  input[name*="fecha"],
+  input[name*="porcentaje"],
+  input[name$="_gastos_venta"],
+  input[name*="cuit"],
+  input[name$="_dni"],
+  input[name="cbu"],
+  input[name="telefono"],
+  input[name$="_celular"] {
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums;
   }
 </style>
 </head>

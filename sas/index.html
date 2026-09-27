@@ -7,7 +7,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600;700&family=Spectral:wght@600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
 
 <style>
@@ -39,8 +39,10 @@
     --accent-veil:  rgba(0,122,94,.07);
 
     --radius:  6px;
-    --serif:   'Spectral', Georgia, serif;
-    --sans:    'Outfit', system-ui, sans-serif;
+    /* Tipografía de estudiolucci.com.ar (sep 2026) */
+    --font-sans: 'Schibsted Grotesk', system-ui, sans-serif;  /* todo el texto */
+    --font-num:  'IBM Plex Sans', system-ui, sans-serif;      /* cifras */
+    --font-logo: 'Spectral', Georgia, serif;                  /* sólo el wordmark */
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -48,7 +50,7 @@
   body {
     background: var(--bg);
     color: var(--text);
-    font-family: var(--sans);
+    font-family: var(--font-sans);
     font-size: 16px;
     font-weight: 400;
     line-height: 1.7;
@@ -70,7 +72,7 @@
   }
   .site-header a { display: flex; align-items: center; gap: 1.25rem; text-decoration: none; flex: 1; }
   .site-header img { width: 48px; height: 48px; object-fit: contain; }
-  .header-text h1 { font-family: var(--serif); font-size: 1.35rem; font-weight: 600; color: var(--navy-text); letter-spacing: .01em; }
+  .header-text h1 { font-family: var(--font-logo); font-size: 1.35rem; font-weight: 600; color: var(--navy-text); letter-spacing: .01em; }
   .header-text p { font-size: 13px; color: var(--navy-muted); margin-top: 2px; letter-spacing: .04em; font-weight: 400; }
 
   /* PROGRESS */
@@ -84,7 +86,7 @@
 
   /* INTRO */
   .intro-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin-bottom: 1.5rem; }
-  .intro-box h2 { font-family: var(--serif); font-size: 1.6rem; font-weight: 600; color: var(--text); margin-bottom: .5rem; }
+  .intro-box h2 { font-family: var(--font-sans); font-size: 1.6rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; color: var(--text); margin-bottom: .5rem; }
   .intro-box p { color: var(--muted); font-size: 14px; line-height: 1.7; font-weight: 400; }
 
   /* SECTION */
@@ -108,8 +110,8 @@
   .section-head button:hover { background: var(--card-hover); }
   .section-head button:focus-visible { outline: 2px solid var(--accent-text); outline-offset: -2px; }
   .section-title-wrap { display: flex; align-items: center; gap: .75rem; min-width: 0; flex: 1; }
-  .section-letter { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--muted); width: 22px; flex-shrink: 0; }
-  .section-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--text); min-width: 0; }
+  .section-letter { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; color: var(--muted); width: 22px; flex-shrink: 0; }
+  .section-title { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; color: var(--text); min-width: 0; }
   .section-badge { font-size: 13px; padding: 2px 8px; border-radius: 99px; border: 1px solid var(--border2); color: var(--muted); flex-shrink: 0; font-weight: 400; }
   .section-toggle { color: var(--muted); font-size: 14px; transition: transform .25s; flex-shrink: 0; }
   .section-toggle.open { transform: rotate(180deg); }
@@ -136,7 +138,7 @@
     border: 1px solid var(--border-input);
     border-radius: var(--radius);
     color: var(--text);
-    font-family: var(--sans);
+    font-family: var(--font-sans);
     font-size: 15px;
     font-weight: 400;
     padding: .7rem .9rem;
@@ -175,7 +177,7 @@
   .jurisdiccion-item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1rem 1.25rem; display: flex; flex-direction: column; gap: 1rem; }
   .jurisdiccion-header { display: flex; align-items: center; justify-content: space-between; }
   .jurisdiccion-num { font-size: 15px; font-weight: 500; color: var(--accent-text); }
-  .btn-remove { background: transparent; border: 1px solid var(--border2); border-radius: var(--radius); color: var(--muted); font-size: 12px; padding: 2px 10px; cursor: pointer; font-family: var(--sans); transition: all .2s; }
+  .btn-remove { background: transparent; border: 1px solid var(--border2); border-radius: var(--radius); color: var(--muted); font-size: 12px; padding: 2px 10px; cursor: pointer; font-family: var(--font-sans); transition: all .2s; }
   .btn-remove:hover { border-color: var(--danger); color: var(--danger); }
 
   .conditional { display: none; }
@@ -202,7 +204,7 @@
   .btn-row { display: flex; gap: .75rem; flex-wrap: wrap; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--border); }
   .btn {
     padding: .75rem 1.5rem;
-    font-family: var(--sans);
+    font-family: var(--font-sans);
     font-size: 14px;
     font-weight: 400;
     letter-spacing: .03em;
@@ -216,7 +218,7 @@
   .btn:hover { background: var(--card-hover); border-color: var(--text); }
   .btn-primary { background: var(--accent-text); color: #FBFAF6; border-color: var(--accent-text); }
   .btn-primary:hover { background: #00624B; border-color: #00624B; }
-  .btn-add { background: transparent; border: 1px dashed var(--mid); color: var(--accent-text); font-size: 14px; padding: .5rem 1rem; border-radius: var(--radius); cursor: pointer; font-family: var(--sans); transition: all .2s; width: 100%; text-align: center; }
+  .btn-add { background: transparent; border: 1px dashed var(--mid); color: var(--accent-text); font-size: 14px; padding: .5rem 1rem; border-radius: var(--radius); cursor: pointer; font-family: var(--font-sans); transition: all .2s; width: 100%; text-align: center; }
   .btn-add:hover { border-color: var(--accent-text); background: var(--accent-veil); }
 
   /* TOAST */
@@ -228,13 +230,13 @@
   .autosave { font-size: 12px; color: var(--muted); text-align: right; margin-top: -.5rem; margin-bottom: .5rem; height: 16px; }
 
   /* FIRMA */
-  .firma-box h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; color: var(--text); margin-bottom: .75rem; }
+  .firma-box h3 { font-family: var(--font-sans); font-size: 1.25rem; font-weight: 600; letter-spacing: -0.015em; line-height: 1.2; color: var(--text); margin-bottom: .75rem; }
   .firma-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem 1.75rem; margin-top: 2rem; }
   .firma-box p { color: var(--muted); font-size: 14px; line-height: 1.7; margin-bottom: 1rem; font-weight: 400; }
   .firma-line { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-end; }
   .firma-campo { flex: 1; min-width: 160px; }
   .firma-campo label { font-size: 14px; color: var(--muted); display: block; margin-bottom: .3rem; font-weight: 400; }
-  .firma-campo input { background: transparent; border: none; border-bottom: 1px solid var(--border-input); border-radius: 0; color: var(--text); width: 100%; padding: .3rem 0; font-family: var(--sans); font-size: 14px; outline: none; }
+  .firma-campo input { background: transparent; border: none; border-bottom: 1px solid var(--border-input); border-radius: 0; color: var(--text); width: 100%; padding: .3rem 0; font-family: var(--font-sans); font-size: 14px; outline: none; }
   .firma-campo input:focus { border-bottom-color: var(--accent-text); box-shadow: 0 2px 0 0 var(--accent-text); }
 
   @media(max-width:600px) {
@@ -280,9 +282,31 @@
   .admin-lista .check-option { justify-content: flex-start; }
   .admin-vacio { font-size: 14px; color: var(--muted); }
 
-  /* El monto de capital se lee mejor en tabular */
-  input.monto { font-variant-numeric: tabular-nums; }
-
+  /* CIFRAS: IBM Plex Sans con dígitos tabulares en lo que se tipea o se lee como
+     número. Va por atributo y no por clase porque parte de los campos los arma el
+     JS (socios de sas, jurisdicciones de mono) y un cambio de estilo no toca el JS.
+     Los montos se reconocen por el placeholder de moneda ($, USD, EUR).
+     Direcciones, patentes, pólizas y números de inscripción quedan en la letra del texto. */
+  .progress-text,
+  .reparto .valor,
+  input[type="number"],
+  input[type="date"],
+  input[inputmode="numeric"],
+  input[inputmode="decimal"],
+  input[placeholder^="$"],
+  input[placeholder^="USD"],
+  input[placeholder^="EUR"],
+  input[name*="fecha"],
+  input[name*="porcentaje"],
+  input[name$="_gastos_venta"],
+  input[name*="cuit"],
+  input[name$="_dni"],
+  input[name="cbu"],
+  input[name="telefono"],
+  input[name$="_celular"] {
+    font-family: var(--font-num);
+    font-variant-numeric: tabular-nums;
+  }
 </style>
 </head>
 <body>
