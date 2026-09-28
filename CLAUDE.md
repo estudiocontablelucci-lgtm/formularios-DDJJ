@@ -102,12 +102,18 @@ La landing (`/`) no tiene wordmark ni cifras: carga sólo Schibsted y define só
 | Sub-sección | 1.0625rem | Schibsted 600 |
 | Marca (header) | 1.35rem | Spectral 600 |
 | Labels | 15px | Schibsted 400 |
+| Campos (input, select, textarea y línea de firma) | 16px | Schibsted 400 |
 | Rótulo de tarjeta (`.sub-title`, `.socio-num`, `.jurisdiccion-num`, `.slot-card-title`) | 15px | Schibsted 500 |
 | Hints y notas | 14px | Schibsted 400 |
 | Cifras | la del campo | Plex 400, tabular |
 
 Los títulos llevan `letter-spacing: -0.015em` y `line-height: 1.2`. El wordmark
 conserva su `.01em`.
+
+**Los campos no bajan de 16px.** Safari de iPhone hace zoom al enfocar un campo
+con letra menor, y el formulario queda corrido hasta que el cliente lo achica a
+mano. Estuvieron en 15px (y la firma en 14px) hasta el 28/09/2026. La web aplica
+la misma regla a su formulario de contacto.
 
 **Qué va en Plex** lo decide el bloque `CIFRAS` al final del `<style>`, igual en
 los cuatro formularios: montos, porcentajes, cantidades, fechas, CUIT, DNI, CBU,
@@ -199,6 +205,7 @@ en seco. Trabajan por selector, no con reemplazos globales: `iigg` tiene un bloq
 | `mejorar_titulos.py` | Escala tipográfica y acordeón accesible |
 | `arreglar_progreso.py` | Progreso sobre campos aplicables + saca el 62ch de las cajas |
 | `tipografia_schibsted_plex.py` | Schibsted + Plex para cifras + Spectral sólo en el wordmark (también la landing) |
+| `campos_16px.py` | Campos y línea de firma a 16px (zoom de Safari en iPhone) |
 
 `verificar_solo_estilo.py` no transforma: se corre **después** de cualquier
 cambio visual y antes de publicar. Compara contra `main` (o `--base DIR`, una
